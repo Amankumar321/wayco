@@ -52,7 +52,7 @@ export default function ChatInterface({ messages, onSendMessage, step }: ChatInt
   }
 
   const handleSendMessage = () => {
-    if (inputValue.trim() || selectedCity) {
+    if (inputValue.trim() || (selectedCity && step == 1)) {
       onSendMessage(inputValue || `I prefer ${selectedCity}`, selectedCity || "Tokyo")
       setInputValue("")
     }
@@ -157,7 +157,7 @@ export default function ChatInterface({ messages, onSendMessage, step }: ChatInt
             <div className="flex space-x-2">
               <Button
                 onClick={() => {
-                  onSendMessage("Yes, I'd like to confirm these activities!", "Tokyo")
+                  onSendMessage("Yes, I'd like to confirm these activities!", selectedCity ?? "Tokyo")
                 }}
                 className="flex-1"
               >
@@ -166,7 +166,7 @@ export default function ChatInterface({ messages, onSendMessage, step }: ChatInt
               <Button
                 variant="outline"
                 onClick={() => {
-                  onSendMessage("I'd like to see different options", "Tokyo")
+                  onSendMessage("I'd like to see different options", selectedCity == "Tokyo" ? "Kyoto" : "Tokyo")
                 }}
                 className="flex-1"
               >
