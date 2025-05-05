@@ -55,7 +55,6 @@ export default function ChatInterface({ messages, onSendMessage, step }: ChatInt
     if (inputValue.trim() || selectedCity) {
       onSendMessage(inputValue || `I prefer ${selectedCity}`, selectedCity || "Tokyo")
       setInputValue("")
-      setSelectedCity(null)
     }
   }
 
@@ -124,7 +123,7 @@ export default function ChatInterface({ messages, onSendMessage, step }: ChatInt
       {showScrollDown && (
         <button
           onClick={scrollToBottom}
-          className="absolute bottom-24 left-[25%] transform -translate-x-1/2 bg-white rounded-full p-2 shadow-md z-10"
+          className="absolute bottom-48 border border-gray-100 left-[25%] transform -translate-x-1/2 bg-white rounded-full p-2 shadow-md z-10"
         >
           <ChevronDown className="h-5 w-5 text-gray-500" />
         </button>
